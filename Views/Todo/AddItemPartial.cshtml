@@ -1,7 +1,17 @@
-@model TodoItem
+@model AspNetCoreTodo.Models.TodoItem
 
-<form asp-action="AddItem" method="POST">
-    <label asp-for="Title">Add a new item:</label>
-    <input asp-for="Title">
-    <button type="submit">Add</button>
+<form asp-action="AddItem" method="post">
+    <div class="form-group">
+        <label asp-for="Title" class="control-label"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DueAt" class="control-label"></label>
+        <input asp-for="DueAt" type="date" class="form-control" />
+        <span asp-validation-for="DueAt" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Add" class="btn btn-primary" />
+    </div>
 </form>

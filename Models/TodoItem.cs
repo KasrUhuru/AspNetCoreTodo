@@ -12,6 +12,7 @@ namespace AspNetCoreTodo.Models
         [Required]
         public string Title {get;set;}
 
-        public DateTimeOffset? DueAt {get;set;}
+        [Required]
+        public DateTimeOffset DueAt {get;set;} = DateTimeOffset.Now.AddDays(3);
     }
 }
