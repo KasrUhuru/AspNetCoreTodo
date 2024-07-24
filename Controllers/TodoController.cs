@@ -36,6 +36,7 @@ namespace AspNetCoreTodo.Controllers
         }
 
         // MarkDone block
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> MarkDone(Guid id)
         {
             if (id==Guid.Empty)
@@ -45,6 +46,7 @@ namespace AspNetCoreTodo.Controllers
 
             var successful = await _todoItemService.MarkDoneAsync(id);
             if (!successful)
+            
             {
                 return BadRequest("Could not mark item as done");
             }
