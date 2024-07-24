@@ -24,6 +24,7 @@ namespace AspNetCoreTodo.Services
                 .ToArrayAsync();
         }
 
+
         public async Task<bool> AddItemAsync(TodoItem newItem)
         {
             newItem.Id = Guid.NewGuid();
@@ -37,4 +38,5 @@ namespace AspNetCoreTodo.Services
         }
  
    }
+
 }
