@@ -27,8 +27,15 @@ namespace AspNetCoreTodo.Controllers
         // Index block
         public async Task<IActionResult> Index()
         {
+
+            var currentUser = await _userManager.GetUserAsync(User);
+            if (currentUser == null)
+            {
+                return Challenge();
+            }
+
             // Get todo items from database
-            var items = await _todoItemService.GetIncompleteItemsAsync();
+            var items = await _todoItemService.GetIncompleteItemsAsync(currentUser);
 
             // Put items into model
             var model = new TodoViewModel()
